@@ -1,32 +1,25 @@
-import { useState, useEffect} from 'react'
-import './App.css'
+import { useState } from "react";
 import { TaskCreator } from "./components/TaskCreator";
+import './App.css'
 
 function App() {
 
   const [taskItems, setTaskItems] = useState([
-    { name: 'mi primer tarea', done: false },
-    { name: 'mi segunda tarea', done: false },
-    { name: 'mi tercer tarea', done: false },
+    {name: "mi primer tarae", done: true}
   ])
 
   function createNewTask(taskName) {
-    if (!taskItems, find(task => task.name === taskName)) {
-      setTaskItems([...taskItems, { name: taskName, done: false }])
-    }
+    setTaskItems([...taskItems, {name: taskName, done: false}])
   }
 
-  useEffect(()=> {
+  return(
+    <div className="App">
+      <TaskCreator createNewtask={createNewTask} />
 
-  }, [])
-
-  return (
-    <div className='App'>
-      <TaskCreator createNewTask={createNewTask} />
       <table>
         <thead>
           <tr>
-            <th>Tareas</th>
+            <th>Tareas pendientes</th>
           </tr>
         </thead>
         <tbody>
@@ -38,11 +31,12 @@ function App() {
                 </td>
               </tr>
             ))
-          }
+          } 
         </tbody>
       </table>
-    </div>
-  )
-}
 
+      
+    </div>
+  );
+}
 export default App

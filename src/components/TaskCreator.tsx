@@ -1,23 +1,24 @@
-import { useState } from 'react'
+import { useState } from "react";
+import { App } from "App";
 
-export const TaskCreator = ({ createNewTask }) => {
-    const [newTaskName, setNewTaskName] = useState("")
+export const TaskCreator = (props) => {
+    const [newTaskName, setNewtaskName] = useState("");
 
-    const handleSubmit = (e) => {
+    const handlesubmit = (e) => {
         e.preventDefault();
-        creatNewTask(newTaskName);
-        localStorage.set.item("task", newTaskName);
-        setNewTaskName("");
+        createNewTask(newTaskName);
+        localStorage.setItem("Task", newTaskName);
+        setNewtaskName("");
     }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder='ingrese una nueva tarea'
+        <form onSubmit={handlesubmit}>
+            <input type="text"
+                placeholder='Escriba una nueva tarea'
                 value={newTaskName}
-                onChange={(e) => setNewTaskName(e.target.value)}
+                onChange={(e) => setNewtaskName(e.target.value)}
             />
-            <button>guradar tarea</button>
+            <button>Guardar tarea</button>
         </form>
     )
 }
